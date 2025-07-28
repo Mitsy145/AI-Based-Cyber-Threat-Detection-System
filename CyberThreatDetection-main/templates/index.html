@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Detection System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Based Threat Detection System</h1>
+    <form method="post">
+        <input type="text" name="threat_text" placeholder="Enter threat description..." required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if results %}
+    <h2>Prediction Results</h2>
+    <form method="post" action="/clear">
+        <button type="submit" style="background-color: red;">Clear Table</button>
+    </form>
+    <table>
+        <tr>
+            <th>Threat Description</th>
+            <th>ATT&CK Tactic</th>
+            <th>ATT&CK Technique</th>
+            <th>Severity</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result['Threat Description'] }}</td>
+            <td>{{ result['ATT&CK Tactic'] }}</td>
+            <td>{{ result['ATT&CK Technique'] }}</td>
+            <td>{{ result['Severity'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"defense-evasion": 0, "privilege-escalation": 1, "credential-access": 2, "initial-access": 3, "discovery": 4, "persistence": 5, "resource-development": 6, "reconnaissance": 7, "exfiltration": 8, "execution": 9, "command-and-control": 10, "impact": 11, "collection": 12, "lateral-movement": 13}
